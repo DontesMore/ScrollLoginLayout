@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:fillViewport="true" >
+
+    <com.dontesmore.scrollloginlayout.ResizeRelativeLayout
+        android:id="@+id/login_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- LOGO图片和文字部分 -->
+
+        <LinearLayout
+            android:id="@+id/logo_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <!-- LOGO图片 -->
+
+            <ImageView
+                android:id="@+id/login_logo_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <!-- LOGO文本 -->
+
+                <TextView
+                    android:id="@+id/login_logo_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="滚动登录布局"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toRightOf="@id/login_logo_text"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <!-- 版本号符号 -->
+
+                    <TextView
+                        android:id="@+id/login_version_v"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+                    <!-- 版本号值 -->
+
+                    <TextView
+                        android:id="@+id/login_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- 登录输入区部分 -->
+
+        <LinearLayout
+            android:id="@+id/input_linear"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:layout_below="@+id/logo_linear"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical" >
+
+            <!-- 账户输入框 -->
+
+            <LinearLayout
+                android:id="@+id/tt_login_account_linear"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="1dp" >
+
+                <LinearLayout
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:contentDescription="图标"
+                        android:src="@mipmap/ic_launcher" />
+                </LinearLayout>
+
+                <AutoCompleteTextView
+                    android:id="@+id/login_account"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:dropDownHeight="145dp"
+                    android:gravity="left|center"
+                    android:hint="输入密码"
+                    android:paddingTop="1dp"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/login_clear_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="14dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ic_launcher"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- 密码输入框 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="1dp" >
+
+                <LinearLayout
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@mipmap/ic_launcher"
+                        android:contentDescription="图标" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/login_pwd"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="left|center"
+                    android:hint="输入密码"
+                    android:paddingRight="14dp"
+                    android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 登录勾选区域（记住账户和记住密码） -->
+
+        <LinearLayout
+            android:id="@+id/remember_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="记住密码" />
+        </LinearLayout>
+
+        <!-- 登录按钮 -->
+
+        <Button
+            android:id="@+id/login_submit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_below="@+id/input_linear"
+            android:layout_marginTop="15dp"
+            android:text="登  录" />
+
+        <!-- 其他功能区（忘记密码等） -->
+
+        <LinearLayout
+            android:id="@+id/forget_linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/login_submit_btn"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/login_find_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:layout_gravity="right"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="忘记密码" />
+
+            <TextView
+                android:id="@+id/authority_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="12dp"
+                android:gravity="bottom|center_horizontal"
+                android:text="版权所有" />
+        </LinearLayout>
+    </com.dontesmore.scrollloginlayout.ResizeRelativeLayout>
+
+</ScrollView>
